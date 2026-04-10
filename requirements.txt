@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+numpy
+pillow
+tensorflow==2.19.0
+gdown
+google-generativeai
