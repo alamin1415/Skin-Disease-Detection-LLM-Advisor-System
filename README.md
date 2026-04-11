@@ -129,14 +129,11 @@ POST /analyze_skin
 
 The API returns a combined JSON response:
 
-```json
-{
-  "disease": "eczema",
-  "confidence": 0.93,
-  "recommendations": "Mild inflammatory skin condition caused by irritation or allergic reaction.",
-  "next_steps": "Consult a dermatologist if symptoms persist or worsen.",
-  "tips": "Keep skin moisturized, avoid harsh chemicals, and maintain hygiene."
-}
+{ "disease": "eczema", "confidence": 0.93, "recommendations": "Mild inflammatory
+skin condition caused by irritation or allergic reaction.", "next_steps":
+"Consult a dermatologist if symptoms persist or worsen.", "tips": "Keep skin
+moisturized, avoid harsh chemicals, and maintain hygiene." }
+
 ## Tech Stack
 
 - FastAPI (Backend API)
@@ -146,7 +143,6 @@ The API returns a combined JSON response:
 - Qwen2.5:3b Model
 - Pillow (Image Processing)
 - Uvicorn (Server)
-
 
 ## Key Features
 
@@ -169,16 +165,3 @@ Uploads an image and returns:
 - AI-generated recommendation
 
 ---
-
-## System Architecture
-
-User Image
-↓
-FastAPI Server
-↓
-VGG16 Model (Disease Prediction)
-↓
-Ollama LLM (Qwen2.5)
-↓
-Final JSON Response
-```
