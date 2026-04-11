@@ -137,7 +137,6 @@ The API returns a combined JSON response:
   "next_steps": "Consult a dermatologist if symptoms persist or worsen.",
   "tips": "Keep skin moisturized, avoid harsh chemicals, and maintain hygiene."
 }
-
 ## Tech Stack
 
 - FastAPI (Backend API)
@@ -148,7 +147,6 @@ The API returns a combined JSON response:
 - Pillow (Image Processing)
 - Uvicorn (Server)
 
----
 
 ## Key Features
 
@@ -174,7 +172,6 @@ Uploads an image and returns:
 
 ## System Architecture
 
-
 User Image
 ↓
 FastAPI Server
@@ -184,10 +181,4 @@ VGG16 Model (Disease Prediction)
 Ollama LLM (Qwen2.5)
 ↓
 Final JSON Response
-
-
-
-
-
-
 ```
