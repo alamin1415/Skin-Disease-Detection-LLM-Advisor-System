@@ -129,7 +129,7 @@ POST /analyze_skin
 
 The API returns a combined JSON response:
 
-````json
+```json
 {
   "disease": "eczema",
   "confidence": 0.93,
@@ -137,11 +137,9 @@ The API returns a combined JSON response:
   "next_steps": "Consult a dermatologist if symptoms persist or worsen.",
   "tips": "Keep skin moisturized, avoid harsh chemicals, and maintain hygiene."
 }
-``` id="r2m9xq"
-
----
 
 ## Tech Stack
+
 - FastAPI (Backend API)
 - TensorFlow / Keras (ML Model)
 - VGG16 (Transfer Learning)
@@ -153,18 +151,21 @@ The API returns a combined JSON response:
 ---
 
 ## Key Features
+
 - Real-time image-based disease prediction
 - AI-generated medical explanations
 - Local LLM (no external API required)
 - Fast and lightweight REST API
-- Combines Computer Vision + NLP
+- Combines Computer Vision and Natural Language Processing
 
 ---
 
 ## Endpoint Details
 
 ### `POST /analyze_skin`
+
 Uploads an image and returns:
+
 - Predicted disease
 - Confidence score
 - AI-generated recommendation
@@ -187,4 +188,6 @@ Final JSON Response
 
 
 
-````
+
+
+```
