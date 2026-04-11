@@ -1,7 +1,8 @@
 import requests
+import json
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL_NAME = "qwen2.5:3b"   # your installed model
+MODEL_NAME = "qwen2.5:3b"
 
 
 def generate_recommendation(disease: str, confidence: float):
@@ -9,21 +10,25 @@ def generate_recommendation(disease: str, confidence: float):
     prompt = f"""
 You are a medical assistant AI.
 
-A skin disease has been detected from an image analysis system.
+A skin disease has been detected.
 
 Disease: {disease}
 Confidence: {confidence:.2f}
 
-Give:
-1. Simple explanation of the disease
-2. Possible causes
-3. Care instructions at home
-4. When to see a doctor
+Return ONLY valid JSON (no extra text):
+
+{{
+  "recommendations": "simple explanation of the disease",
+  "next_steps": "what the patient should do next",
+  "tips": "home care tips in simple English"
+}}
 
 Rules:
+- No markdown
+- No explanation
+- Only JSON output
 - Use simple English
-- Make it easy for patients to understand
-- Do NOT give dangerous medical prescriptions
+- No medical prescriptions
 """
 
     payload = {
@@ -45,20 +50,19 @@ Rules:
         )
 
         response.raise_for_status()
-
         result = response.json()
 
-        # safety check
-        if "message" in result and "content" in result["message"]:
-            return {
-                "recommendation": result["message"]["content"]
-            }
+        # Ollama response text
+        content = result["message"]["content"]
 
-        return {
-            "recommendation": "Invalid response from LLM"
-        }
+        # Convert string → JSON
+        parsed = json.loads(content)
+
+        return parsed
 
     except Exception as e:
         return {
-            "recommendation": f"Ollama error: {str(e)}"
+            "recommendations": "Error generating response",
+            "next_steps": "Try again later",
+            "tips": f"Ollama error: {str(e)}"
         }
