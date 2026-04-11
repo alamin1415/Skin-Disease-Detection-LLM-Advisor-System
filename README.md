@@ -136,13 +136,14 @@ moisturized, avoid harsh chemicals, and maintain hygiene." }
 
 ## Tech Stack
 
+- Streamlit (Frontend UI Dashboard)
 - FastAPI (Backend API)
-- TensorFlow / Keras (ML Model)
-- VGG16 (Transfer Learning)
+- TensorFlow / Keras (Machine Learning Framework)
+- VGG16 (Transfer Learning Model)
 - Ollama (Local LLM Server)
-- Qwen2.5:3b Model
+- Qwen2.5:3b (Local Large Language Model)
 - Pillow (Image Processing)
-- Uvicorn (Server)
+- Uvicorn (ASGI Server for FastAPI)
 
 ## Key Features
 
@@ -165,3 +166,31 @@ Uploads an image and returns:
 - AI-generated recommendation
 
 ---
+
+## How to Run the Project
+
+```bash
+# 1. Clone repository
+git clone <your-repo-link>
+cd <project-folder>
+
+# 2. Create virtual environment
+python -m venv venv
+
+# Activate environment
+venv\Scripts\activate      # Windows
+# source venv/bin/activate # Mac/Linux
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run FastAPI backend
+uvicorn app.main:app --reload
+
+# 5. Run Streamlit frontend (open new terminal)
+streamlit run app.py
+
+# 6. Open in browser
+# FastAPI: http://127.0.0.1:8000/docs
+# Streamlit: http://localhost:8501
+```
