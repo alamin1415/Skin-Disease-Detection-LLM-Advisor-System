@@ -1,2 +1,20 @@
 
- link: https://drive.google.com/file/d/13Ji5wvj2ieyuoAucqfB0i6Swsn6FwmQr/view?usp=sharing
+Model Download Instructions
+
+You can download the pre-trained machine learning model from the link below:
+
+https://drive.google.com/file/d/13Ji5wvj2ieyuoAucqfB0i6Swsn6FwmQr/view?usp=sharing
+
+This file contains the trained model that is required to run the project successfully.
+
+Setup Instructions
+
+Open the link above and download the model file from Google Drive.
+After downloading, place the model file into the following directory inside your project:
+
+project/
+└── model/
+└── (place the downloaded model file here)
+
+Make sure the file name matches the name expected in your code. If the filename is different, update your code accordingly.
+After placing the model in the correct folder, you can run the project as usual.
